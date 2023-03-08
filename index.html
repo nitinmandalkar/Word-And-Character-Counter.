@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter In JS</title>
+    <link rel="icon" href="https://addons.mozilla.org/user-media/previews/full/189/189816.png?modified=1622132788">
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h3{
+            text-align: center;
+            background-color: rgb(22, 22, 163);
+            color: wheat;
+            padding: 10px;
+            margin: 0px;
+            width: 97%;
+    
+        }
+        #textbox{
+            width: 98.15%;
+            background-color: white;
+            font-size: 10px;
+        }
+        p{  
+            text-align: center;
+            background-color: rgb(22, 22, 163);
+            font-size: 25px;
+            font-weight: bold ;
+            color: rgb(248, 241, 241);
+            padding: 10px;
+            margin: 0px;
+            width: 97%;
+
+        }
+    </style>
+</head>
+<body>
+    <h3>This Is Word And Character Counter Project.</h3>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0 </span>words and
+        <span id="char">0 </span>Charactors
+    </p>
+    <script>
+        let textbox = document.getElementById('textbox');
+        textbox.addEventListener('input', function(){
+            var text = this.value;
+            let char = text.length;
+            document.getElementById("char").innerHTML=char;
+            
+            text=text.trim();
+            let words = text.split(" ");
+            let cleanList = words.filter(function(elm){
+                return elm != 0;
+
+            })
+            document.getElementById('word').innerHTML=cleanList.length;
+
+        });
+    </script>
+</body>
+</html>
